@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Synapse - A nova geração de IAs para conversação e geração de imagens">
+  <title>Synapse - Inteligência Artificial</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <!-- Indicador de carregamento -->
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+  </div>
+
+<!-- Banner de Cookies -->
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <h3>Este site utiliza cookies</h3>
+      <p>Utilizamos cookies para melhorar sua experiência, personalizar conteúdo e analisar o tráfego do site. Você pode escolher quais cookies deseja permitir.</p>
+    </div>
+    <div class="cookie-actions">
+      <button id="cookie-accept-all" class="cookie-btn cookie-btn-primary">Aceitar todos</button>
+      <button id="cookie-settings-open" class="cookie-btn cookie-btn-secondary">Personalizar</button>
+    </div>
+  </div>
+</div>
+
+  <div class="main-container">
+    <!-- Cabeçalho -->
+    <header class="header">
+      <nav class="navigation">
+        <div class="logo">
+          <img src="assets/images/logo.png" alt="Logo Synapse" width="162">
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" id="menuToggle">
+          <span class="hamburger"></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#features">Recursos</a></li>
+          <li><a href="pages/chat.html">Chat IA</a></li>
+          <li><a href="#about">Sobre</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Seção HERO com vídeo -->
+    <section id="home" class="hero">
+      <video class="video-bg" autoplay muted loop playsinline poster="assets/images/video-poster.jpg">
+        <source src="assets/video/background3.mp4" type="video/mp4">
+        <!-- Fallback para navegadores que não suportam vídeo -->
+        <img src="assets/images/video-fallback.jpg" alt="Background tecnológico animado">
+      </video>
+      <div class="hero-overlay">
+        <h1 class="hero-title">Synapse</h1>
+        <p class="hero-subtitle">A nova geração de IAs</p>
+        <div class="hero-cta">
+          <a href="pages/chat.html" class="btn btn-primary">Experimente agora</a>
+          <a href="#features" class="btn btn-secondary">Saiba mais</a>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Role para baixo</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Seção de Recursos -->
+    <section id="features" class="section features">
+      <div class="container">
+        <h2 class="section-title">Recursos Poderosos</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Chat Inteligente</h3>
+            <p>Converse com diferentes modelos de IA e obtenha respostas precisas para suas perguntas.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 9L12 2L22 9V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Geração de Imagens</h3>
+            <p>Crie imagens impressionantes a partir de descrições textuais com nossa tecnologia avançada.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19.4 15C19.2669 15.3016 19.2272 15.6362 19.286 15.9606C19.3448 16.285 19.4995 16.5843 19.73 16.82L19.79 16.88C19.976 17.0657 20.1235 17.2863 20.2241 17.5291C20.3248 17.7719 20.3766 18.0322 20.3766 18.295C20.3766 18.5578 20.3248 18.8181 20.2241 19.0609C20.1235 19.3037 19.976 19.5243 19.79 19.71C19.6043 19.896 19.3837 20.0435 19.1409 20.1441C18.8981 20.2448 18.6378 20.2966 18.375 20.2966C18.1122 20.2966 17.8519 20.2448 17.6091 20.1441C17.3663 20.0435 17.1457 19.896 16.96 19.71L16.9 19.65C16.6643 19.4195 16.365 19.2648 16.0406 19.206C15.7162 19.1472 15.3816 19.1869 15.08 19.32C14.7842 19.4468 14.532 19.6572 14.3543 19.9255C14.1766 20.1938 14.0813 20.5082 14.08 20.83V21C14.08 21.5304 13.8693 22.0391 13.4942 22.4142C13.1191 22.7893 12.6104 23 12.08 23C11.5496 23 11.0409 22.7893 10.6658 22.4142C10.2907 22.0391 10.08 21.5304 10.08 21V20.91C10.0723 20.579 9.96512 20.258 9.77251 19.9887C9.5799 19.7194 9.31074 19.5143 9 19.4C8.69838 19.2669 8.36381 19.2272 8.03941 19.286C7.71502 19.3448 7.41568 19.4995 7.18 19.73L7.12 19.79C6.93425 19.976 6.71368 20.1235 6.47088 20.2241C6.22808 20.3248 5.96783 20.3766 5.705 20.3766C5.44217 20.3766 5.18192 20.3248 4.93912 20.2241C4.69632 20.1235 4.47575 19.976 4.29 19.79C4.10405 19.6043 3.95653 19.3837 3.85588 19.1409C3.75523 18.8981 3.70343 18.6378 3.70343 18.375C3.70343 18.1122 3.75523 17.8519 3.85588 17.6091C3.95653 17.3663 4.10405 17.1457 4.29 16.96L4.35 16.9C4.58054 16.6643 4.73519 16.365 4.794 16.0406C4.85282 15.7162 4.81312 15.3816 4.68 15.08C4.55324 14.7842 4.34276 14.532 4.07447 14.3543C3.80618 14.1766 3.49179 14.0813 3.17 14.08H3C2.46957 14.08 1.96086 13.8693 1.58579 13.4942C1.21071 13.1191 1 12.6104 1 12.08C1 11.5496 1.21071 11.0409 1.58579 10.6658C1.96086 10.2907 2.46957 10.08 3 10.08H3.09C3.42099 10.0723 3.742 9.96512 4.0113 9.77251C4.28059 9.5799 4.48572 9.31074 4.6 9C4.73312 8.69838 4.77282 8.36381 4.714 8.03941C4.65519 7.71502 4.50054 7.41568 4.27 7.18L4.21 7.12C4.02405 6.93425 3.87653 6.71368 3.77588 6.47088C3.67523 6.22808 3.62343 5.96783 3.62343 5.705C3.62343 5.44217 3.67523 5.18192 3.77588 4.93912C3.87653 4.69632 4.02405 4.47575 4.21 4.29C4.39575 4.10405 4.61632 3.95653 4.85912 3.85588C5.10192 3.75523 5.36217 3.70343 5.625 3.70343C5.88783 3.70343 6.14808 3.75523 6.39088 3.85588C6.63368 3.95653 6.85425 4.10405 7.04 4.29L7.1 4.35C7.33568 4.58054 7.63502 4.73519 7.95941 4.794C8.28381 4.85282 8.61838 4.81312 8.92 4.68H9C9.29577 4.55324 9.54802 4.34276 9.72569 4.07447C9.90337 3.80618 9.99872 3.49179 10 3.17V3C10 2.46957 10.2107 1.96086 10.5858 1.58579C10.9609 1.21071 11.4696 1 12 1C12.5304 1 13.0391 1.21071 13.4142 1.58579C13.7893 1.96086 14 2.46957 14 3V3.09C14.0013 3.41179 14.0966 3.72618 14.2743 3.99447C14.452 4.26276 14.7042 4.47324 15 4.6C15.3016 4.73312 15.6362 4.77282 15.9606 4.714C16.285 4.65519 16.5843 4.50054 16.82 4.27L16.88 4.21C17.0657 4.02405 17.2863 3.87653 17.5291 3.77588C17.7719 3.67523 18.0322 3.62343 18.295 3.62343C18.5578 3.62343 18.8181 3.67523 19.0609 3.77588C19.3037 3.87653 19.5243 4.02405 19.71 4.21C19.896 4.39575 20.0435 4.61632 20.1441 4.85912C20.2448 5.10192 20.2966 5.36217 20.2966 5.625C20.2966 5.88783 20.2448 6.14808 20.1441 6.39088C20.0435 6.63368 19.896 6.85425 19.71 7.04L19.65 7.1C19.4195 7.33568 19.2648 7.63502 19.206 7.95941C19.1472 8.28381 19.1869 8.61838 19.32 8.92V9C19.4468 9.29577 19.6572 9.54802 19.9255 9.72569C20.1938 9.90337 20.5082 9.99872 20.83 10H21C21.5304 10 22.0391 10.2107 22.4142 10.5858C22.7893 10.9609 23 11.4696 23 12C23 12.5304 22.7893 13.0391 22.4142 13.4142C22.0391 13.7893 21.5304 14 21 14H20.91C20.5882 14.0013 20.2738 14.0966 20.0055 14.2743C19.7372 14.452 19.5268 14.7042 19.4 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Múltiplos Modelos</h3>
+            <p>Escolha entre diferentes modelos de IA para obter resultados personalizados para suas necessidades.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2 class="section-title">Sobre o Synapse</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>Synapse é uma plataforma avançada de inteligência artificial projetada para oferecer experiências de conversação e geração de conteúdo de alta qualidade.</p>
+            <p>Nossa tecnologia utiliza os mais recentes avanços em processamento de linguagem natural e visão computacional para fornecer respostas precisas e gerar imagens impressionantes a partir de descrições textuais.</p>
+            <p>Desenvolvido por uma equipe de especialistas em IA, o Synapse está em constante evolução para oferecer a melhor experiência possível aos usuários.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="assets/images/logo.png" alt="Logo Synapse" width="280">
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h3>Navegação</h3>
+              <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#features">Recursos</a></li>
+                <li><a href="pages/chat.html">Chat IA</a></li>
+                <li><a href="#about">Sobre</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>Legal</h3>
+              <ul>
+                <li><a href="pages/institucional/termos.html">Termos de Uso</a></li>
+                <li><a href="pages/institucional/privacidade.html">Política de Privacidade</a></li>
+                <li><a href="pages/institucional/cookies.html">Cookies</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>Contato</h3>
+              <ul>
+                <li><a href="mailto:contato@Synapse.ai">contato@Synapse.ai</a></li>
+                <li><a href="#">Suporte</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Synapse - Todos os direitos reservados</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Botão de voltar ao topo -->
+  <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // Função para abrir o modal de configurações de cookies
+function openCookieSettings() {
+  // Verificar se o banner de cookies já existe
+  let cookieBanner = document.getElementById('cookie-settings-modal');
+  
+  // Se não existir, criar o modal
+  if (!cookieBanner) {
+    cookieBanner = document.createElement('div');
+    cookieBanner.id = 'cookie-settings-modal';
+    cookieBanner.className = 'cookie-settings-modal';
+    
+    cookieBanner.innerHTML = `
+      <div class="cookie-settings-content">
+        <div class="cookie-settings-header">
+          <h3>Configurações de Cookies</h3>
+          <button class="cookie-close-btn" onclick="closeCookieSettings()">&times;</button>
+        </div>
+        <div class="cookie-settings-body">
+          <p>Personalize suas preferências de cookies selecionando as categorias que você permite:</p>
+          
+          <div class="cookie-option">
+            <label class="cookie-switch">
+              <input type="checkbox" checked disabled>
+              <span class="cookie-slider"></span>
+            </label>
+            <div class="cookie-option-text">
+              <h4>Cookies Essenciais</h4>
+              <p>Necessários para o funcionamento básico do site. Não podem ser desativados.</p>
+            </div>
+          </div>
+          
+          <div class="cookie-option">
+            <label class="cookie-switch">
+              <input type="checkbox" id="preference-cookies">
+              <span class="cookie-slider"></span>
+            </label>
+            <div class="cookie-option-text">
+              <h4>Cookies de Preferências</h4>
+              <p>Permitem que o site lembre suas preferências e configurações.</p>
+            </div>
+          </div>
+          
+          <div class="cookie-option">
+            <label class="cookie-switch">
+              <input type="checkbox" id="analytics-cookies">
+              <span class="cookie-slider"></span>
+            </label>
+            <div class="cookie-option-text">
+              <h4>Cookies Analíticos</h4>
+              <p>Ajudam a entender como você interage com o site, permitindo melhorias.</p>
+            </div>
+          </div>
+          
+          <div class="cookie-option">
+            <label class="cookie-switch">
+              <input type="checkbox" id="marketing-cookies">
+              <span class="cookie-slider"></span>
+            </label>
+            <div class="cookie-option-text">
+              <h4>Cookies de Marketing</h4>
+              <p>Usados para rastrear visitantes entre sites para exibir anúncios relevantes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cookie-settings-footer">
+          <button class="btn btn-secondary" onclick="rejectAllCookies()">Rejeitar Todos</button>
+          <button class="btn btn-primary" onclick="acceptSelectedCookies()">Salvar Preferências</button>
+        </div>
+      </div>
+    `;
+    
+    document.body.appendChild(cookieBanner);
+    
+    // Carregar configurações salvas
+    loadCookiePreferences();
+  }
+  
+  // Mostrar o modal
+  cookieBanner.style.display = 'flex';
+  document.body.style.overflow = 'hidden'; // Impedir rolagem
+}
+
+// Função para fechar o modal
+function closeCookieSettings() {
+  const modal = document.getElementById('cookie-settings-modal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = ''; // Restaurar rolagem
+  }
+}
+
+// Função para carregar preferências salvas
+function loadCookiePreferences() {
+  // Verificar se existem preferências salvas
+  if (localStorage.getItem('cookiePreferences')) {
+    const preferences = JSON.parse(localStorage.getItem('cookiePreferences'));
+    
+    // Aplicar preferências aos checkboxes
+    document.getElementById('preference-cookies').checked = preferences.preferences;
+    document.getElementById('analytics-cookies').checked = preferences.analytics;
+    document.getElementById('marketing-cookies').checked = preferences.marketing;
+  }
+}
+
+// Função para salvar preferências selecionadas
+function acceptSelectedCookies() {
+  const preferences = {
+    essential: true, // Sempre ativo
+    preferences: document.getElementById('preference-cookies').checked,
+    analytics: document.getElementById('analytics-cookies').checked,
+    marketing: document.getElementById('marketing-cookies').checked
+  };
+  
+  // Salvar no localStorage
+  localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+  
+  // Aplicar configurações (aqui você implementaria a lógica para ativar/desativar cookies)
+  applyCookieSettings(preferences);
+  
+  // Fechar modal
+  closeCookieSettings();
+  
+  // Mostrar mensagem de confirmação
+  showToast('Suas preferências de cookies foram salvas.');
+}
+
+// Função para rejeitar todos os cookies não essenciais
+function rejectAllCookies() {
+  const preferences = {
+    essential: true, // Sempre ativo
+    preferences: false,
+    analytics: false,
+    marketing: false
+  };
+  
+  // Atualizar checkboxes
+  document.getElementById('preference-cookies').checked = false;
+  document.getElementById('analytics-cookies').checked = false;
+  document.getElementById('marketing-cookies').checked = false;
+  
+  // Salvar no localStorage
+  localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+  
+  // Aplicar configurações
+  applyCookieSettings(preferences);
+  
+  // Fechar modal
+  closeCookieSettings();
+  
+  // Mostrar mensagem de confirmação
+  showToast('Todos os cookies não essenciais foram rejeitados.');
+}
+
+// Função para aplicar configurações de cookies
+function applyCookieSettings(preferences) {
+  // Aqui você implementaria a lógica para ativar/desativar cookies
+  console.log('Aplicando configurações de cookies:', preferences);
+  
+  // Exemplo: desativar Google Analytics se analytics = false
+  if (!preferences.analytics && window.ga) {
+    window['ga-disable-UA-XXXXXXXX-X'] = true; // Substitua pelo seu ID do GA
+  }
+}
+
+// Função para mostrar mensagem de toast
+function showToast(message) {
+  let toast = document.getElementById('cookie-toast');
+  
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'cookie-toast';
+    toast.className = 'cookie-toast';
+    document.body.appendChild(toast);
+  }
+  
+  toast.textContent = message;
+  toast.classList.add('show');
+  
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+}
+
+// Verificar se o usuário já fez escolhas de cookies
+document.addEventListener('DOMContentLoaded', function() {
+  if (!localStorage.getItem('cookiePreferences')) {
+    // Se não houver preferências salvas, mostrar banner de cookies após 1 segundo
+    setTimeout(() => {
+      showCookieBanner();
+    }, 1000);
+  }
+});
+
+
+
+// Funções para o Banner de Cookies
+document.addEventListener('DOMContentLoaded', function() {
+  // Elementos do DOM
+  const cookieBanner = document.getElementById('cookie-banner');
+  const acceptAllBtn = document.getElementById('cookie-accept-all');
+  const settingsOpenBtn = document.getElementById('cookie-settings-open');
+  
+  // Verificar se o usuário já fez escolhas de cookies
+  if (!localStorage.getItem('cookiePreferences')) {
+    // Se não houver preferências salvas, mostrar banner de cookies após 1 segundo
+    setTimeout(() => {
+      showCookieBanner();
+    }, 1000);
+  }
+  
+  // Evento para aceitar todos os cookies
+  if (acceptAllBtn) {
+    acceptAllBtn.addEventListener('click', function() {
+      acceptAllCookies();
+      hideCookieBanner();
+      showToast('Todos os cookies foram aceitos. Obrigado!');
+    });
+  }
+  
+  // Evento para abrir configurações
+  if (settingsOpenBtn) {
+    settingsOpenBtn.addEventListener('click', function() {
+      hideCookieBanner();
+      openCookieSettings(); // Sua função existente
+    });
+  }
+  
+  // Funções para mostrar/ocultar o banner
+  function showCookieBanner() {
+    if (cookieBanner) {
+      cookieBanner.classList.add('show');
+    }
+  }
+  
+  function hideCookieBanner() {
+    if (cookieBanner) {
+      cookieBanner.classList.remove('show');
+    }
+  }
+  
+  // Função para aceitar todos os cookies
+  function acceptAllCookies() {
+    const preferences = {
+      essential: true,
+      preferences: true,
+      analytics: true,
+      marketing: true
+    };
+    
+    // Salvar no localStorage
+    localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+    
+    // Aplicar configurações
+    applyCookieSettings(preferences); // Sua função existente
+  }
+});
+  </script>
+</body>
+
+</html>
